@@ -19,5 +19,5 @@ The memory is initialized with predefined block sizes, and each block is initial
 
 ## Access Demo Application
 
-[ec2-43-204-234-224.ap-south-1.compute.amazonaws.com:5000](ec2-43-204-234-224.ap-south-1.compute.amazonaws.com:5000)
+[http://ec2-43-204-234-224.ap-south-1.compute.amazonaws.com:5000/](http://http://ec2-43-204-234-224.ap-south-1.compute.amazonaws.com:5000/)
 
