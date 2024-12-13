@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Allocate Memory</h2>
+    <form id="allocate-form">
+        <input type="number" name="process_size" placeholder="Enter process size (KB) Less than 500(KB)" required>
+        <button type="submit">Allocate</button>
+    </form>
+    <div id="result"></div>
+    <div id="memory-container">
+        <canvas id="memory-canvas" width="600" height="400"></canvas>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
