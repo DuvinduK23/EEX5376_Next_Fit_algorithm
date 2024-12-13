@@ -17,7 +17,7 @@ The memory is initialized with predefined block sizes, and each block is initial
 2. **Next Fit Allocation**: The program searches for available blocks from where the last allocation was made.
 3. **Free/Allocated Blocks**: Each block can either be free or allocated to a process.
 
-## Accsess Demo Application
+## Access Demo Application
 
-**ec2-43-204-234-224.ap-south-1.compute.amazonaws.com:5000
+[ec2-43-204-234-224.ap-south-1.compute.amazonaws.com:5000](#usage)
 
