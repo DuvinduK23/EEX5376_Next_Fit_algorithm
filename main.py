@@ -1,12 +1,12 @@
-from memory_manager import MemoryManager
+import MemoryManager from memory_manager
 
-def main():
+def run_simulation():
     """
     Runs the memory allocation simulation with an interactive menu.
     """
-    # Example memory block sizes
     block_sizes = [200, 300, 100, 500, 50]
-    mm = MemoryManager(block_sizes)
+    manager = MemoryManager(sum(block_sizes))  # Initialize with total memory size
+    print(f"Simulation initialized with total memory size: {sum(block_sizes)} KB.\n")
 
     while True:
         print("\nMenu:")
@@ -14,22 +14,21 @@ def main():
         print("2. Allocate Memory")
         print("3. Free Memory")
         print("4. Exit")
-        
         try:
             choice = int(input("Enter your choice: "))
 
             if choice == 1:
-                mm.display_memory()  # Show the current memory state
+                manager.display_memory()
             elif choice == 2:
                 try:
-                    size = int(input("Enter process size (KB): "))  # Process size input
-                    print(mm.allocate_memory(size))  # Try to allocate memory
+                    size = int(input("Enter process size (KB): "))
+                    print(manager.allocate_memory(size))
                 except ValueError:
                     print("Invalid input. Please enter a numeric value.")
             elif choice == 3:
                 try:
-                    index = int(input("Enter block index to free: "))  # Block index input
-                    print(mm.free_memory(index))  # Free the memory at the given index
+                    address = int(input("Enter the start address of the block to free: "))
+                    print(manager.free_memory(address))
                 except ValueError:
                     print("Invalid input. Please enter a numeric value.")
             elif choice == 4:
@@ -42,4 +41,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run_simulation()
