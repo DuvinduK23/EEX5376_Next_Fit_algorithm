@@ -1,57 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Manager</title>
-    <style>
-        .allocated { background-color: lightgreen; }
-        .free { background-color: lightcoral; }
-        .pointer { background-color: yellow; font-weight: bold; }
-        .block { padding: 10px; text-align: center; }
-        .step { margin-top: 10px; font-style: italic; }
-    </style>
-</head>
-<body>
-    <h1>Memory Manager</h1>
-    {% if message %}
-        <p><strong>{{ message }}</strong></p>
-    {% endif %}
-    
-    <h2>Current Memory State</h2>
-    <p><strong>Next Fit Pointer is at Block {{ next_fit_pointer }}.</strong></p>
+{% extends "base.html" %}
 
-    <table border="1">
-        <tr>
-            <th>Block Index</th>
-            <th>Size (KB)</th>
-            <th>Status</th>
-        </tr>
-        {% for block in memory %}
-        <tr>
-            <td>{{ loop.index0 }}</td>
-            <td>{{ block.size }}</td>
-            <td class="block 
-                {% if block.status == 'Allocated' %} allocated {% endif %}
-                {% if block.status == 'Free' %} free {% endif %}
-                {% if loop.index0 == next_fit_pointer %} pointer {% endif %}
-            ">
-                {{ block.status }}
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-
+{% block content %}
+<div class="container">
     <h2>Allocate Memory</h2>
-    <form action="{{ url_for('allocate') }}" method="post">
-        <label for="process_size">Process Size (KB):</label>
-        <input type="number" id="process_size" name="process_size" required>
+    <form id="allocate-form">
+        <input type="number" name="process_size" placeholder="Enter process size (KB) Less than 500(KB)" required>
         <button type="submit">Allocate</button>
     </form>
-    
-    <h2>Steps</h2>
-    {% if message %}
-        <div class="step">{{ message }}</div>
-    {% endif %}
-</body>
-</html>
+    <div id="result"></div>
+    <div id="memory-container">
+        <canvas id="memory-canvas" width="600" height="400"></canvas>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
