@@ -1,0 +1,18 @@
+Test Case ID,Description,Input,Expected Output,Actual Output,Status
+TC001,Allocate process of size 150 KB.,Process size: 150 KB,Process of size 150 KB allocated at block 0.,Process of size 150 KB allocated at block 0.,Pass
+TC002,Allocate process of size 250 KB.,Process size: 250 KB,Process of size 250 KB allocated at block 1.,Process of size 250 KB allocated at block 1.,Pass
+TC003,Allocate process of size 80 KB.,Process size: 80 KB,Process of size 80 KB allocated at block 2.,Process of size 80 KB allocated at block 2.,Pass
+TC004,Allocate process of size 50 KB.,Process size: 50 KB,Process of size 50 KB allocated at block 4.,Process of size 50 KB allocated at block 3.,Fail
+TC005,Allocate process of size 100 KB.,Process size: 100 KB,Process of size 100 KB allocated at block 2.,Process of size 100 KB allocated at block 3.,Fail
+TC006,Allocate memory failure when no block is large enough.,Process size: 600 KB,No suitable block found for allocation.,No suitable block found for allocation.,Pass
+TC007,Allocate memory failure when no block is large enough.,Process size: 700 KB,No suitable block found for allocation.,No suitable block found for allocation.,Pass
+TC008,Allocate memory wrapping back to earlier blocks.,Process size: 80 KB,Process of size 80 KB allocated at block 2.,Process of size 80 KB allocated at block 3.,Fail
+TC009,Allocate zero-size memory.,Process size: 0 KB,No suitable block found for allocation.,Process of size 0 KB allocated at block 3.,Fail
+TC010,Allocate negative-size memory.,Process size: -50 KB,No suitable block found for allocation.,Process of size -50 KB allocated at block 3.,Fail
+TC011,Allocate process that exactly matches a block size.,Process size: 100 KB,Process of size 100 KB allocated at block 2.,Process of size 100 KB allocated at block 0.,Fail
+TC012,Allocate small process of size 50 KB.,Process size: 50 KB,Process of size 50 KB allocated at block 0.,Process of size 50 KB allocated at block 0.,Pass
+TC013,Allocate small process of size 50 KB.,Process size: 50 KB,Process of size 50 KB allocated at block 0.,Process of size 50 KB allocated at block 0.,Pass
+TC014,Allocate small process of size 50 KB.,Process size: 50 KB,Process of size 50 KB allocated at block 1.,Process of size 50 KB allocated at block 0.,Fail
+TC015,Allocate small process of size 50 KB.,Process size: 50 KB,Process of size 50 KB allocated at block 1.,Process of size 50 KB allocated at block 0.,Fail
+TC016,Allocate small process of size 50 KB.,Process size: 50 KB,Process of size 50 KB allocated at block 2.,Process of size 50 KB allocated at block 1.,Fail
+TC017,Allocate large process after several small allocations.,Process size: 400 KB,Process of size 400 KB allocated at block 3.,Process of size 400 KB allocated at block 3.,Pass
